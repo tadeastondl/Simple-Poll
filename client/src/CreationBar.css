@@ -1,0 +1,17 @@
+div{
+    color: rgb(103, 16, 124);
+}
+.OptionList
+{
+    display: grid;
+    margin: auto;
+}
+.formCreationBar{
+    padding: 2em;
+    background-color: brown;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.Question{
+    font-size: large;
+}

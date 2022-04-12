@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.faddc555.css","mappings":"AAAA,IACI,aACJ,CACA,YAEI,YAAa,CACb,WACJ,CCPA,IACI,iBACJ","sources":["CreationBar.css","index.css"],"sourcesContent":["div{\r\n    color: rgb(103, 16, 124);\r\n}\r\n.OptionList\r\n{\r\n    display: grid;\r\n    margin: auto;\r\n}","div{\r\n    text-align: center;\r\n}\r\n"],"names":[],"sourceRoot":""}
