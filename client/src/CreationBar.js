@@ -1,11 +1,12 @@
 import "./CreationBar.css";
 import React, { useState } from "react";
 import axios from "axios";
+import {Link} from "react-router-dom"
 
-const Test = () => {
+const CreationBar = () => {
   const [poll, setpoll] = useState({ options: [], question: "" });
   const [nOptions, setnOptions] = useState(3);
-  const [url, setUrl] = useState("");
+  const [id, setID] = useState(null);
 
   const handleChange = (event) => {
     const input = event.target;
@@ -19,6 +20,7 @@ const Test = () => {
   };
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     if (poll.question == "") return console.log("missing question");
     const options = poll.options.filter((item) => item != "");
     if (options.length < 2) return console.log("missing options");
@@ -28,8 +30,8 @@ const Test = () => {
         poll,
       })
       .then(function (response) {
-        console.log(response);
-        setUrl(response.data.url);
+        console.log(response.data.id);
+        setID(response.data.id);
       })
       .catch(function (error) {
         console.log(error);
@@ -38,27 +40,29 @@ const Test = () => {
 
   return (
     <>
-      <form className="formCreationBar">
-        <label onSubmit={handleSubmit}>
+      <form >
+        <label onSubmit={handleSubmit} >
           <input
-            className="Question"
+            placeholder="Type your question here"
+            className="QuestionInput"
             onChange={(event) => (poll.question = event.target.value)}
           />
           {new Array(nOptions).fill(0).map((element, index) => (
-            <input
-              className="OptionList"
+            <input 
+            className="creationInput"
               type="poll"
+              placeholder="Type your option here"
               data-pos={index}
               key={index}
               onChange={handleChange}
             />
           ))}
         </label>
-      </form>
       <button onClick={handleSubmit}>Get poll</button>
-      {url && <a href={url}>Your Created Poll Link</a>}
+      {id && <Link to={`${id}`}>Your Created Poll Link</Link>}
+      </form>
     </>
   );
 };
 
-export default Test;
+export default CreationBar;

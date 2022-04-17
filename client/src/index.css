@@ -1,3 +1,48 @@
-div{
+.wrap{
+    font-size: 2em;
+
+
+}
+h1{
     text-align: center;
+    color: rgb(144, 55, 73);
+
+}
+body{
+    background-color: rgb(43, 46, 74);
+}
+.OptionList
+{
+    display: grid;
+    margin: auto;
+}
+form{
+    padding: 1.25em 2em ;
+    background-color: rgb(232, 69, 69);
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.Question{
+    margin: 0;
+    margin-bottom: 0.5em;
+    font-size: 1.25em;
+    width: 100%;
+    background-color: inherit;
+}
+.QuestionInput{
+    font-size: 1.25em;
+    width: 100%;
+    border: none;
+    background-color: inherit;
+    border-bottom: 2px dashed black;
+}
+.creationInput{
+    width: 100%;
+    border: none;
+    background-color: inherit;
+    border-bottom: 2px dashed black;
+}
+.optionInput{
+
 }
