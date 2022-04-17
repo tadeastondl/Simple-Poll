@@ -1,10 +1,11 @@
 import "./CreationBar.css";
 import React, { useState } from "react";
 import axios from "axios";
-import env from "./env.json";
+
 const Test = () => {
   const [poll, setpoll] = useState({ options: [], question: "" });
   const [nOptions, setnOptions] = useState(3);
+  const [url, setUrl] = useState("");
 
   const handleChange = (event) => {
     const input = event.target;
@@ -18,12 +19,17 @@ const Test = () => {
   };
 
   const handleSubmit = (event) => {
+    if (poll.question == "") return console.log("missing question");
+    const options = poll.options.filter((item) => item != "");
+    if (options.length < 2) return console.log("missing options");
+    poll.options = options;
     axios
-      .post(`http://${env.IP}/pollapi`, {
+      .post(`${process.env.REACT_APP_SERVER_IP}/pollApi`, {
         poll,
       })
       .then(function (response) {
         console.log(response);
+        setUrl(response.data.url);
       })
       .catch(function (error) {
         console.log(error);
@@ -34,7 +40,10 @@ const Test = () => {
     <>
       <form className="formCreationBar">
         <label onSubmit={handleSubmit}>
-          <input className="Question" onChange={(event) => poll.question=event.target.value } />
+          <input
+            className="Question"
+            onChange={(event) => (poll.question = event.target.value)}
+          />
           {new Array(nOptions).fill(0).map((element, index) => (
             <input
               className="OptionList"
@@ -47,6 +56,7 @@ const Test = () => {
         </label>
       </form>
       <button onClick={handleSubmit}>Get poll</button>
+      {url && <a href={url}>Your Created Poll Link</a>}
     </>
   );
 };

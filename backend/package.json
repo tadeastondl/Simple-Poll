@@ -6,6 +6,11 @@
   "scripts": {
     "start": "nodemon index.js"
   },
+  "nodemonConfig": {
+    "ignore": [
+      "res/*"
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

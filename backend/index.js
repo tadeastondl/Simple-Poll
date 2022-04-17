@@ -4,10 +4,12 @@ const path = require("path");
 const cors = require("cors");
 require("dotenv").config();
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 const homeRouter = require("./routes/home");
 const pollApiRouter = require("./routes/pollApi");
+
+
 
 app.use(morgan("dev"));
 app.use(cors());

@@ -5,4 +5,6 @@ const pollApiController = require('../controllers/pollApi');
 
 router.post("/", pollApiController.postPoll)
 
+router.get("/:id", pollApiController.getPoll)
+
 module.exports = router;
