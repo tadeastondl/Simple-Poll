@@ -21,9 +21,9 @@ const CreationBar = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (poll.question == "") return console.log("missing question");
+    if (poll.question == "") return alert("missing question");
     const options = poll.options.filter((item) => item != "");
-    if (options.length < 2) return console.log("missing options");
+    if (options.length < 2) return alert("missing options(min 2)");
     poll.options = options;
     axios
       .post(`${process.env.REACT_APP_SERVER_IP}/pollApi`, {
@@ -40,16 +40,15 @@ const CreationBar = () => {
 
   return (
     <>
-      <form >
-        <label onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit}>
           <input
             placeholder="Type your question here"
-            className="QuestionInput"
+            className="Question"
             onChange={(event) => (poll.question = event.target.value)}
           />
           {new Array(nOptions).fill(0).map((element, index) => (
-            <input 
-            className="creationInput"
+            <input  
+            className="option"
               type="poll"
               placeholder="Type your option here"
               data-pos={index}
@@ -57,9 +56,8 @@ const CreationBar = () => {
               onChange={handleChange}
             />
           ))}
-        </label>
-      <button onClick={handleSubmit}>Get poll</button>
-      {id && <Link to={`${id}`}>Your Created Poll Link</Link>}
+      <button className="Button" onClick={handleSubmit}>Create poll</button><p></p>
+      {id && <Link to={`${id}`} className="link">Your Created Poll Link</Link>}
       </form>
     </>
   );

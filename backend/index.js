@@ -9,10 +9,12 @@ const PORT = process.env.PORT || 3001;
 const homeRouter = require("./routes/home");
 const pollApiRouter = require("./routes/pollApi");
 
-
-
 app.use(morgan("dev"));
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "public")));

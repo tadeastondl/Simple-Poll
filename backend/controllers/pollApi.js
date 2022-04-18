@@ -49,27 +49,56 @@ exports.postAnswer = (req, res) => {
     let answerI;
     const answers = JSON.parse(data.toString());
     const answer = answers.filter((answer, index) => {
-      return (answer.id == req.params.id) && (answerI = index) + "";
+      return answer.id == req.params.id && (answerI = index) + "";
     })[0];
     if (!answer) {
-      
       const newAnswer = {
         id: req.params.id,
         options: {},
       };
-      req.body.options.forEach((item) =>newAnswer.options[item] = 0)
+      req.body.options.forEach((item) => (newAnswer.options[item] = 0));
       answers.push(newAnswer);
-      answerI = answers.length - 1
+      answerI = answers.length - 1;
     }
-    
-    answers[answerI].options[req.body.value]++
 
-    data = JSON.stringify(answers)
+    answers[answerI].options[req.body.value]++;
+
+    data = JSON.stringify(answers);
 
     fs.writeFile("./res/answers.json", data, (err) => {
       if (err) {
         throw err;
       }
+    });
+  });
+};
+
+exports.getResults = (req, res) => {
+  fs.readFile("./res/polls.json", "utf-8", (err, polls) => {
+    if (err) {
+      throw err;
+    }
+    polls = JSON.parse(polls.toString());
+
+    fs.readFile("./res/answers.json", "utf-8", (err, answers) => {
+      if (err) {
+        throw err;
+      }
+      answers = JSON.parse(answers.toString());
+
+      const poll = polls.filter((poll) => poll.id == req.params.id)[0];
+      const answer = answers.filter((answer) => answer.id == req.params.id)[0].options;
+      const newOptions = poll.options.map((item) => ({
+        name: item,
+        nAnswers: answer[item],
+      }));
+
+      const results = {
+        question: poll.question,
+        options: newOptions
+      };
+
+      res.status(200).json(results);
     });
   });
 };

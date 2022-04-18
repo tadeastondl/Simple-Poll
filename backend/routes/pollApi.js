@@ -9,6 +9,8 @@ router.get("/:id", pollApiController.getPoll)
 
 router.post("/:id", pollApiController.postAnswer)
 
+router.get("/:id/results", pollApiController.getResults)
+
 
 
 
