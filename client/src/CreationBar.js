@@ -40,6 +40,7 @@ const CreationBar = () => {
 
   return (
     <>
+    <div className="container">
       <form onSubmit={handleSubmit}>
           <input
             placeholder="Type your question here"
@@ -59,6 +60,7 @@ const CreationBar = () => {
       <button className="Button" onClick={handleSubmit}>Create poll</button><p></p>
       {id && <Link to={`${id}`} className="link">Your Created Poll Link</Link>}
       </form>
+      </div>
     </>
   );
 };

@@ -20,6 +20,7 @@ const Results = () => {
   return (
     <>
     {results && (
+      <div className="container">
         <form>
           <p className="Question">{results.question}</p>
           {results.options.map((item, index) => (
@@ -30,6 +31,7 @@ const Results = () => {
           ))}
           
         </form>
+        </div>
       )}
     </>
   );

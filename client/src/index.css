@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Carter+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap');
 * {
-  font-family: "Carter One", cursive;
+  font-family: 'Akshar', sans-serif;
 }
 
 .Button {
@@ -8,46 +8,53 @@
   display: grid;
   margin: auto;
   margin-top: 1em;
-  background-color: rgb(62, 69, 134);
-  border-color: rgb(62, 69, 134);
+  padding: 1%;
+  background-color: rgb(58,76,91);
+  border-color: rgb(58,76,91);
   border-style: double;
   border-radius: 10px;
-  font-size: large;
+  font-size: 0.8em;
 }
 h1 {
-  font-size: 2em;
+  font-size: 2.2em;
   text-align: center;
-  color: rgb(199, 47, 80);
+  color: rgb(24,33,41);
   margin: auto;
 }
 body {
+  
   font-size: 2em;
-  background-color: rgb(31, 34, 61);
+  background-color: rgb(55,71,92);
 }
 .OptionList {
   display: grid;
   margin: auto;
 }
 form {
-    padding: 1.5em 1.2em;
-  background-color: rgb(167, 33, 33);
-  margin-left: 20%;
-  margin-right: 20%;
-  border: 1rem solid;
-  border-radius: 7px;
-  border-color: rgb(70, 15, 26);
+  width: 50%;
+  padding: 1.5em 1.2em;
+  background-color: rgb(73,92,116);
+  border: 0.5rem solid;
+  border-radius: 5px;
+  border-color: rgb(18,27,30);
+}
+.container {
+  
+  display: flex;
+  justify-content: center;
 }
 
 .Question {
   margin: 0;
   margin-bottom: 0.5em;
-  font-size: 1.1em;
+  font-size: 1.3em;
   width: 100%;
   background-color: inherit;
   word-break: break-all;
   border: none;
   background-color: inherit;
   border-bottom: 2px double #111;
+  overflow: auto;
 }
 
 .link {
@@ -56,7 +63,7 @@ form {
   display: grid;
   margin: auto;
   margin-top: 10px;
-  color: rgb(73, 27, 133);
+  color: rgb(1,1,1);
 }
 .option {
   border: none;

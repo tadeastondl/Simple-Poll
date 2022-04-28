@@ -41,6 +41,7 @@ const Poll = () => {
   return (
     <>
       {poll && (
+        <div className="container">
         <form onSubmit={handleClick}>
           <p className="Question">{poll.question}</p>
           {poll.options.map((item, index) => (
@@ -61,6 +62,7 @@ const Poll = () => {
           }
           
         </form>
+        </div>
       )}
     </>
   );
