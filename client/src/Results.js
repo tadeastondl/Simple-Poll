@@ -9,12 +9,8 @@ const Results = () => {
       axios
         .get(`${process.env.REACT_APP_SERVER_IP}/pollApi/${id}/results`)
         .then(function (response) {
-          console.log(response.data);
           setResults(response.data);
         })
-        .catch(function (error) {
-          console.log(error);
-        });
     }, []);
   return (
     <>

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Navigate, Route, Routes} from "react-router-dom";
 import Poll from "./Poll";
 import Results from "./Results";
 import CreationBar from "./CreationBar";
@@ -10,7 +10,9 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="wrap">
-        <h1>Simple Poll</h1>
+        <div className="h1wrap">
+        <Link to="/" className="h1Link"><h1 >Simple Poll</h1></Link>
+        </div>
         <Routes>
           <Route path="" element={<CreationBar />} />
           <Route path=":id" element={<Poll />} />

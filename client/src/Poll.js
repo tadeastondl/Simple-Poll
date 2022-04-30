@@ -12,12 +12,8 @@ const Poll = () => {
     axios
       .get(`${process.env.REACT_APP_SERVER_IP}/pollApi/${id}`)
       .then(function (response) {
-        console.log(response.data.options);
         setpoll(response.data);
       })
-      .catch(function (error) {
-        console.log(error);
-      });
   }, []);
   
   const handleClick = (event) => {
@@ -28,12 +24,6 @@ const Poll = () => {
         value,
         options: poll.options,
       })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
       setSubmit(true);
   };
 

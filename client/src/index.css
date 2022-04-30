@@ -8,7 +8,7 @@
   display: grid;
   margin: auto;
   margin-top: 1em;
-  padding: 1%;
+  padding: 0.3em;
   background-color: rgb(58,76,91);
   border-color: rgb(58,76,91);
   border-style: double;
@@ -16,13 +16,13 @@
   font-size: 0.8em;
 }
 h1 {
+  width: fit-content;
   font-size: 2.2em;
   text-align: center;
   color: rgb(24,33,41);
-  margin: auto;
 }
 body {
-  
+  padding-top: 2rem;
   font-size: 2em;
   background-color: rgb(55,71,92);
 }
@@ -56,7 +56,6 @@ form {
   border-bottom: 2px double #111;
   overflow: auto;
 }
-
 .link {
   text-align: center;
   font-size: 0.7em;
@@ -64,6 +63,19 @@ form {
   margin: auto;
   margin-top: 10px;
   color: rgb(1,1,1);
+}
+.h1Link{
+  text-decoration: none;
+
+}
+.h1Link * {
+display: inline;  
+
+
+}
+.h1wrap{
+  text-align: center;
+  margin-bottom: 2rem;
 }
 .option {
   border: none;
@@ -83,5 +95,16 @@ form {
     margin: auto;
     width: 100%;
     font-size: 1em;
+}
+
+
+@media (max-width: 750px){
+  form{
+    width: 100%;
+    padding: 1.5em 0.2em;
+  }
+  .Question{
+    font-size: 1.2em;
+  }
 }
 

@@ -29,12 +29,8 @@ const CreationBar = () => {
         poll,
       })
       .then(function (response) {
-        console.log(response.data.id);
         setID(response.data.id);
       })
-      .catch(function (error) {
-        console.log(error);
-      });
   };
 
   return (
